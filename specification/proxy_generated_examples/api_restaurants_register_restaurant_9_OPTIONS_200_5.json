@@ -1,0 +1,29 @@
+{
+    "http-request": {
+        "path": "/api/restaurants/register/restaurant/9",
+        "method": "OPTIONS",
+        "headers": {
+            "Connection": "keep-alive",
+            "Accept": "*/*",
+            "Origin": "http://localhost:5173",
+            "Sec-Fetch-Mode": "cors",
+            "Sec-Fetch-Site": "same-site",
+            "Sec-Fetch-Dest": "empty",
+            "Accept-Encoding": "gzip, deflate, br, zstd"
+        }
+    },
+    "http-response": {
+        "status": 200,
+        "body": "",
+        "status-text": "OK",
+        "headers": {
+            "Allow": "GET, HEAD, POST, PUT, DELETE, OPTIONS, TRACE, PATCH",
+            "X-Content-Type-Options": "nosniff",
+            "X-XSS-Protection": "0",
+            "Pragma": "no-cache",
+            "X-Frame-Options": "DENY",
+            "Keep-Alive": "timeout=60",
+            "Connection": "keep-alive"
+        }
+    }
+}

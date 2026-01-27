@@ -1,0 +1,50 @@
+{
+    "http-request": {
+        "path": "/api/restaurants/register/restaurant/9",
+        "method": "POST",
+        "headers": {
+            "Connection": "keep-alive",
+            "sec-ch-ua-platform": "\"Android\"",
+            "Accept": "application/json, text/plain, */*",
+            "sec-ch-ua": "\"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"144\", \"Microsoft Edge\";v=\"144\"",
+            "Content-Type": "application/json",
+            "sec-ch-ua-mobile": "?1",
+            "Origin": "http://localhost:5173",
+            "Sec-Fetch-Site": "same-site",
+            "Sec-Fetch-Mode": "cors",
+            "Sec-Fetch-Dest": "empty",
+            "Accept-Encoding": "gzip, deflate, br, zstd"
+        },
+        "body": {
+            "restoName": "Hotel Saiba",
+            "rating": "4.0",
+            "locationLink": "https://maps.app.goo.gl/yd8Yt6r7jmtErNtT8",
+            "fssaiLicense": "7854987854",
+            "openTime": "12:00",
+            "closeTime": "23:00",
+            "description": "A fine dining experience with authentic Indian cuisine.",
+            "phoneNo": "7854296324",
+            "averageCost": "350",
+            "foodType": "VEG",
+            "approved": false
+        }
+    },
+    "http-response": {
+        "status": 500,
+        "body": {
+            "timestamp": "2026-01-20T14:54:11.786+00:00",
+            "status": 500,
+            "error": "Internal Server Error",
+            "path": "/api/restaurants/register/restaurant/9"
+        },
+        "status-text": "Internal Server Error",
+        "headers": {
+            "X-Content-Type-Options": "nosniff",
+            "X-XSS-Protection": "0",
+            "Pragma": "no-cache",
+            "X-Frame-Options": "DENY",
+            "Content-Type": "application/json",
+            "Connection": "close"
+        }
+    }
+}

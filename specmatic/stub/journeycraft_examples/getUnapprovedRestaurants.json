@@ -1,0 +1,28 @@
+{
+  "http-request": {
+    "path": "/admin/restaurant/unapproved",
+    "method": "GET",
+    "description": "This is an example request to fetch all unapproved restaurants"
+  },
+  "http-response": {
+    "status": 200,
+    "status-text": "OK",
+    "description": "This is an example response containing a list of unapproved restaurants",
+    "body": [
+      {
+        "id": 75,
+        "restoName": "Hotel Saiba",
+        "rating": 4.0,
+        "locationLink": "https://maps.app.goo.gl/yd8Yt6r7jmtErNtT8",
+        "fssaiLicense": "7854987854",
+        "openTime": "12:00:00",
+        "closeTime": "12:00:00",
+        "description": "A fine dining experience with authentic Indian cuisine.",
+        "phoneNo": "7854296324",
+        "averageCost": 350.0,
+        "foodType": "VEG",
+        "approved": false
+      }
+    ]
+  }
+}

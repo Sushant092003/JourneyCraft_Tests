@@ -1,0 +1,20 @@
+{
+  "http-request": {
+    "path": "/api/users/register",
+    "method": "POST",
+    "description": "Register user who already exists",
+    "body": {
+      "name": "AmitGuide",
+      "email": "amit.guide@gmail.com",
+      "password": "Test@1234",
+      "role": "GUIDE"
+    }
+  },
+  "http-response": {
+    "status": 409,
+    "status-text": "Conflict",
+    "body": {
+      "message": "User already exists"
+    }
+  }
+}

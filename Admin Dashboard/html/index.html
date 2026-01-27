@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JourneyCraft Admin Dashboard</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <div class="sidebar">
+      <h2>JourneyCraft</h2>
+      <nav>
+        <a href="index.html">Dashboard</a>
+        <a href="guides.html">Guides</a>
+        <a href="restaurants.html">Restaurants</a>
+        <a href="street_locations.html">Street Location</a>
+      </nav>
+    </div>
+
+    <div class="main-content">
+      <h1>Dashboard Overview</h1>
+
+      <div class="stats-grid">
+        <div class="card stat-card">
+          <img src="../assets/icons/guide.png" alt="Guide Icon" />
+          <h2 id="total-guides"></h2>
+          <p>Total Guides</p>
+        </div>
+        <div class="card stat-card">
+          <img src="../assets/icons/restaurant.png" alt="Restaurant Icon" />
+          <h2 id="total-restaurants"></h2>
+          <p>Total Restaurants</p>
+        </div>
+        <div class="card stat-card">
+          <img src="../assets/icons/active.png" alt="Active Icon" />
+          <h2 id="active-guides"></h2>
+          <p>Active Guides</p>
+        </div>
+        <div class="card stat-card">
+          <img src="../assets/icons/pending.png" alt="Pending Icon" />
+          <h2 id="pending-guides"></h2>
+          <p>Pending Guides</p>
+        </div>
+      </div>
+
+      <div class="graphs">
+        <div class="card graph-card">
+          <h3>Guide Status (Pie Chart)</h3>
+          <canvas id="guidePieChart"></canvas>
+        </div>
+
+        <div class="card graph-card">
+          <h3>New Registrations (Line Chart)</h3>
+          <canvas id="registrationLineChart"></canvas>
+        </div>
+
+        <div class="card graph-card">
+          <h3>Guide Activity (Bar Chart)</h3>
+          <canvas id="guideChart"></canvas>
+        </div>
+
+        <div class="card graph-card">
+          <h3>Restaurant Activity (Bar Chart)</h3>
+          <canvas id="restaurantChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/dashboard.js"></script>
+  </body>
+</html>

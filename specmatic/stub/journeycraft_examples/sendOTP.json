@@ -1,0 +1,15 @@
+{
+  "http-request": {
+    "path": "/api/users/send-otp",
+    "method": "POST",
+    "body": {
+      "email": "amit.guide@gmail.com"
+    }
+  },
+  "http-response": {
+    "status": 200,
+    "body": {
+      "message": "OTP sent successfully"
+    }
+  }
+}

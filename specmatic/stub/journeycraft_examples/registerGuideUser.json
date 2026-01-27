@@ -1,0 +1,24 @@
+{
+  "http-request": {
+    "path": "/api/users/register",
+    "method": "POST",
+    "description": "Register a new GUIDE user",
+    "body": {
+      "name": "AmitGuide",
+      "email": "amit.guide@gmail.com",
+      "password": "Test@1234",
+      "role": "GUIDE"
+    }
+  },
+  "http-response": {
+    "status": 201,
+    "status-text": "Created",
+    "description": "Guide user registered successfully",
+    "body": {
+      "id": 11,
+      "name": "AmitGuide",
+      "email": "amit.guide@gmail.com",
+      "role": "GUIDE"
+    }
+  }
+}

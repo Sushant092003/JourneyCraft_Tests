@@ -1,0 +1,24 @@
+{
+  "http-request": {
+    "path": "/api/users/register",
+    "method": "POST",
+    "description": "Register a new RESTAURANT user",
+    "body": {
+      "name": "SaiRestaurant",
+      "email": "sai@restaurant.com",
+      "password": "Test@1234",
+      "role": "RESTAURANT"
+    }
+  },
+  "http-response": {
+    "status": 201,
+    "status-text": "Created",
+    "description": "Restaurant user registered successfully",
+    "body": {
+      "id": 12,
+      "name": "SaiRestaurant",
+      "email": "sai@restaurant.com",
+      "role": "RESTAURANT"
+    }
+  }
+}

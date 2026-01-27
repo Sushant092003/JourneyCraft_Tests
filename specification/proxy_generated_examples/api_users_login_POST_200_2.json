@@ -1,0 +1,43 @@
+{
+    "http-request": {
+        "path": "/api/users/login",
+        "method": "POST",
+        "headers": {
+            "Connection": "keep-alive",
+            "sec-ch-ua-platform": "\"Windows\"",
+            "Accept": "application/json, text/plain, */*",
+            "sec-ch-ua": "\"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"144\", \"Microsoft Edge\";v=\"144\"",
+            "Content-Type": "application/json",
+            "sec-ch-ua-mobile": "?0",
+            "Origin": "http://localhost:5173",
+            "Sec-Fetch-Site": "same-site",
+            "Sec-Fetch-Mode": "cors",
+            "Sec-Fetch-Dest": "empty",
+            "Accept-Encoding": "gzip, deflate, br, zstd"
+        },
+        "body": {
+            "email": "sushantbhat5445@gmail.com",
+            "password": "susBhat@2003"
+        }
+    },
+    "http-response": {
+        "status": 200,
+        "body": {
+            "id": 9,
+            "role": "RESTAURANT",
+            "message": "Login successful",
+            "email": "sushantbhat5445@gmail.com",
+            "username": "Sushant09"
+        },
+        "status-text": "OK",
+        "headers": {
+            "X-Content-Type-Options": "nosniff",
+            "X-XSS-Protection": "0",
+            "Pragma": "no-cache",
+            "X-Frame-Options": "DENY",
+            "Content-Type": "application/json",
+            "Keep-Alive": "timeout=60",
+            "Connection": "keep-alive"
+        }
+    }
+}

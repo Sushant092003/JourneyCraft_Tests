@@ -1,0 +1,15 @@
+{
+  "http-request": {
+    "path": "/admin/guide/approve/14",
+    "method": "POST",
+    "description": "This is an example of a request to create a new entity at the /admin/guide/approve/228 endpoint "
+  },
+  "http-response": {
+    "status": 200,
+    "status-text": "OK",
+    "body": {
+      "message": "Guide Approved"
+    },
+    "description": "This is an example of a response after creating a new entity at the /admin/guide/approve/228 endpoint "
+  }
+}

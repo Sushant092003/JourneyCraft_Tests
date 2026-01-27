@@ -1,0 +1,34 @@
+openapi: 3.0.0
+info:
+  title: Google Maps Stub API
+  version: 1.0.0
+
+servers:
+  - url: http://0.0.0.0:9000
+
+paths:
+  /maps:
+    get:
+      summary: Stubbed Google Maps HTML page
+      responses:
+        "200":
+          description: Stubbed HTML
+          content:
+            text/html:
+              schema:
+                type: string
+              examples:
+                default:
+                  value: |
+                    <html>
+                      <head>
+                        <title>Google Maps</title>
+                      </head>
+                      <body>
+                        <div>
+                          Some Google Maps content
+                          !3d20.520430!4d76.856744
+                          More content
+                        </div>
+                      </body>
+                    </html>

@@ -1,0 +1,28 @@
+{
+  "http-request": {
+    "path": "/api/guides/guide/54",
+    "method": "GET",
+    "description": "This is an example of a request to retrieve a specific entity at the /api/guides/guide/230 endpoint"
+  },
+  "http-response": {
+    "status": 200,
+    "body": {
+      "id": 1,
+      "guidename": "Shantaram Bhat",
+      "experience": 20,
+      "language": "English",
+      "bio": "Experience guide for 10 years . Fluent in Hindi English Marathi and Kannada",
+      "latitude": 16.81229,
+      "longitude": 74.113464,
+      "licenseNumber": "ShantaramBhat",
+      "isAvailable": true,
+      "phoneNo": "9755341298",
+      "approved": true
+    },
+    "status-text": "OK",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "description": "This is an example of a response "
+  }
+}

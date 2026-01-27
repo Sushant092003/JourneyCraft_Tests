@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JourneyCraft - Approve Restaurants</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <div class="sidebar">
+      <h2>JourneyCraft</h2>
+      <nav>
+        <a href="index.html">Dashboard</a>
+        <a href="guides.html">Guides</a>
+        <a href="restaurants.html" class="active">Restaurants</a>
+        <a href="street_locations.html">Street Location</a>
+      </nav>
+    </div>
+
+    <div class="main-content">
+      <h1>Restaurant Management</h1>
+
+      <div class="management-grid">
+        <div class="management-section">
+          <h2>Pending Approval</h2>
+          <div class="table-container">
+            <table id="unapprovedRestaurantTable">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>License Number</th>
+                  <th>Contact</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="management-section">
+          <h2>All Restaurants</h2>
+          <div class="table-container">
+            <table id="approvedRestaurantTable">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Contact</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dialog-overlay" id="restaurantDialog">
+      <div class="dialog-box">
+        <div class="dialog-header">
+          <h2>Restaurant Details</h2>
+          <button
+            class="dialog-close"
+            onclick="closeDialog('restaurantDialog')">
+            &times;
+          </button>
+        </div>
+        <div class="dialog-content">
+          <div class="detail-item">
+            <label>Restaurant Name</label>
+            <span id="dialog-restaurant-name"></span>
+          </div>
+          <div class="detail-item">
+            <label>Description</label>
+            <span id="dialog-restaurant-description"></span>
+          </div>
+          <div class="detail-item">
+            <label>License Number</label>
+            <span id="dialog-restaurant-license"></span>
+          </div>
+          <div class="detail-item">
+            <label>Phone Number</label>
+            <span id="dialog-restaurant-phone"></span>
+          </div>
+          <div class="detail-item">
+            <label>Email</label>
+            <span id="dialog-restaurant-email"></span>
+          </div>
+          <div class="detail-item">
+            <label>Address</label>
+            <span id="dialog-restaurant-address"></span>
+          </div>
+          <div class="detail-item">
+            <label>Cuisine Type</label>
+            <span id="dialog-restaurant-cuisine"></span>
+          </div>
+        </div>
+        <div class="dialog-footer" id="restaurantDialogFooter"></div>
+      </div>
+    </div>
+
+    <script src="../js/restaurants.js"></script>
+  </body>
+</html>

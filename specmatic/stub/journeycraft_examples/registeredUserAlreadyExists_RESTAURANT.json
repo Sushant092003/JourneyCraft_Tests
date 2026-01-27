@@ -1,0 +1,21 @@
+{
+  "http-request": {
+    "path": "/api/users/register",
+    "method": "POST",
+    "description": "Register restaurant user who already exists",
+    "body": {
+      "name": "Sai Restaurant",
+      "email": "sai@restaurant.com",
+      "password": "Test@1234",
+      "role": "RESTAURANT"
+    }
+  },
+  "http-response": {
+    "status": 409,
+    "status-text": "Conflict",
+    "description": "Restaurant user already exists",
+    "body": {
+      "message": "User already exists"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "http-request": {
+    "path": "/admin/guide/unapproved",
+    "method": "GET",
+    "description": "This is an example request to fetch all unapproved guides"
+  },
+  "http-response": {
+    "status": 200,
+    "status-text": "OK",
+    "description": "This is an example response containing a list of unapproved guides",
+    "body": [
+      {
+        "id": 10,
+        "guidename": "Ramesh Kulkarni",
+        "experience": 5,
+        "language": "Hindi, English, Marathi",
+        "bio": "Local city guide with 5 years of experience in historical tours.",
+        "latitude": 18.5204,
+        "longitude": 73.8567,
+        "licenseNumber": "MH-GUIDE-2021-001",
+        "isAvailable": true,
+        "phoneNo": "9876543210",
+        "approved": false
+      },
+      {
+        "id": 202,
+        "guidename": "Suresh Patil",
+        "experience": 8,
+        "language": "English, Marathi",
+        "bio": "Specialized in heritage walks and food tours around the city.",
+        "latitude": 18.5314,
+        "longitude": 73.8446,
+        "licenseNumber": "MH-GUIDE-2019-014",
+        "isAvailable": true,
+        "phoneNo": "9123456789",
+        "approved": false
+      }
+    ]
+  }
+}

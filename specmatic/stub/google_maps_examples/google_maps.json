@@ -1,0 +1,16 @@
+{
+  "http-request": {
+    "path": "/maps",
+    "method": "GET",
+    "description": "This is an example of a request to retrieve a list of entities at the /maps endpoint"
+  },
+  "http-response": {
+    "status": 200,
+    "body": "<html> <head> <title>Google Maps</title> </head> <body> <div> Some Google Maps content !3d18.520430!4d73.856744 More content </div> </body> </html>",
+    "status-text": "OK",
+    "headers": {
+      "Content-Type": "text/html"
+    },
+    "description": "This is an example of a response "
+  }
+}

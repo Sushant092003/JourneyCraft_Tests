@@ -1,0 +1,23 @@
+{
+  "http-request": {
+    "path": "/api/users/login",
+    "method": "POST",
+    "description": "Login as RESTAURANT",
+    "body": {
+      "email": "sai@restaurant.com",
+      "password": "Test@1234"
+    }
+  },
+  "http-response": {
+    "status": 200,
+    "status-text": "OK",
+    "description": "Restaurant login success",
+    "body": {
+      "id": 12,
+      "username": "SaiRestaurant",
+      "email": "sai@restaurant.com",
+      "role": "RESTAURANT",
+      "message": "Login successful"
+    }
+  }
+}

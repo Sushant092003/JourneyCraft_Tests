@@ -1,0 +1,29 @@
+{
+  "http-request": {
+    "path": "/api/restaurants/restaurant/9",
+    "method": "GET",
+    "description": "This is an example of a request to retrieve a specific entity at the /api/restaurant/restaurant/378 endpoint"
+  },
+  "http-response": {
+    "status": 200,
+    "body": {
+      "id": 75,
+      "restoName": "Hotel Saiba",
+      "rating": 4.0,
+      "locationLink": "https://maps.app.goo.gl/yd8Yt6r7jmtErNtT8",
+      "fssaiLicense": "7854987854",
+      "openTime": "12:00:00",
+      "closeTime": "12:00:00",
+      "description": "A fine dining experience with authentic Indian cuisine.",
+      "phoneNo": "7854296324",
+      "averageCost": 350.0,
+      "foodType": "VEG",
+      "approved": true
+    },
+    "status-text": "OK",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "description": "This is an example of a response "
+  }
+}

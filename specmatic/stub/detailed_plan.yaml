@@ -1,0 +1,129 @@
+openapi: 3.0.1
+info:
+  title: Detailed Plan API
+  version: "1.0"
+  description: API to generate a detailed travel plan. Start time is fixed at 09:00 and end time is fixed at 20:00.
+
+servers:
+  - url: "http://localhost:8080"
+
+paths:
+  /plan/detailed:
+    post:
+      summary: Generate detailed travel plan
+      description: Generates a travel plan for the day (09:00 to 20:00) based on starting location.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DetailedPlanRequest"
+            examples:
+              default:
+                summary: Generate plan for Pune
+                value:
+                  startingLocation: "Pune"
+
+      responses:
+        "200":
+          description: Successfully generated travel plan
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DetailedPlanResponse"
+              examples:
+                default:
+                  summary: Sample generated plan
+                  value:
+                    startingLocation: "Pune"
+                    startTime: "09:00"
+                    endTime: "20:00"
+                    places:
+                      - name: "Shaniwar Wada"
+                        fromTime: "09:30"
+                        toTime: "11:00"
+                      - name: "Aga Khan Palace"
+                        fromTime: "12:00"
+                        toTime: "13:30"
+                      - name: "Sinhagad Fort"
+                        fromTime: "15:00"
+                        toTime: "18:30"
+
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponseBody"
+              examples:
+                value:
+                  timestamp: "2026-01-15T08:00:00"
+                  status: 400
+                  error: "Invalid starting location"
+                  path: "/plan/detailed"
+
+components:
+  schemas:
+
+    DetailedPlanRequest:
+      title: Detailed Plan Request
+      type: object
+      properties:
+        startingLocation:
+          type: string
+          example: "Pune"
+      required:
+        - startingLocation
+
+    DetailedPlanResponse:
+      title: Detailed Plan Response
+      type: object
+      properties:
+        startingLocation:
+          type: string
+        startTime:
+          type: string
+          example: "09:00"
+        endTime:
+          type: string
+          example: "20:00"
+        places:
+          type: array
+          items:
+            $ref: "#/components/schemas/PlaceVisit"
+      required:
+        - startingLocation
+        - startTime
+        - endTime
+        - places
+
+    PlaceVisit:
+      title: Place Visit
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Shaniwar Wada"
+        fromTime:
+          type: string
+          example: "09:30"
+        toTime:
+          type: string
+          example: "11:00"
+      required:
+        - name
+        - fromTime
+        - toTime
+
+    ErrorResponseBody:
+      type: object
+      properties:
+        timestamp:
+          type: string
+          format: date-time
+        status:
+          type: integer
+        error:
+          type: string
+        path:
+          type: string

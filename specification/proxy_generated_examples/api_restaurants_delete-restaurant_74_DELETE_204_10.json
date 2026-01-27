@@ -1,0 +1,26 @@
+{
+    "http-request": {
+        "path": "/api/restaurants/delete-restaurant/74",
+        "method": "DELETE",
+        "headers": {
+            "Accept": "*/*",
+            "Postman-Token": "a0942408-3989-4b8d-82a6-9063e001fc0a",
+            "Accept-Encoding": "gzip, deflate, br",
+            "Connection": "keep-alive",
+            "Cookie": "(string)"
+        }
+    },
+    "http-response": {
+        "status": 204,
+        "body": "",
+        "status-text": "No Content",
+        "headers": {
+            "X-Content-Type-Options": "nosniff",
+            "X-XSS-Protection": "0",
+            "Pragma": "no-cache",
+            "X-Frame-Options": "DENY",
+            "Keep-Alive": "timeout=60",
+            "Connection": "keep-alive"
+        }
+    }
+}

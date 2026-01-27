@@ -1,0 +1,15 @@
+{
+    "http-request": {
+        "path": "/admin/restaurant/approve/78",
+        "method": "POST",
+        "description": "This is an example of a request to create a new entity at the /admin/restaurant/approve/748 endpoint "
+    },
+    "http-response": {
+        "status": 200,
+        "status-text": "OK",
+        "body": {
+            "message": "Restaurant Approved"
+        },
+        "description": "This is an example of a response after creating a new entity at the /admin/restaurant/approve/748 endpoint "
+    }
+}

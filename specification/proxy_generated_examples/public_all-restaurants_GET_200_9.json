@@ -1,0 +1,95 @@
+{
+    "http-request": {
+        "path": "/public/all-restaurants",
+        "method": "GET",
+        "headers": {
+            "Content-Type": "text/plain",
+            "Accept": "*/*",
+            "Postman-Token": "0a18f858-454d-4468-aee7-600ed7ded39c",
+            "Accept-Encoding": "gzip, deflate, br",
+            "Connection": "keep-alive",
+            "Cookie": "(string)"
+        },
+        "body": [
+            {
+                "lat": 19.076,
+                "lng": 72.9677
+            },
+            {
+                "lat": 48.8566,
+                "lng": 2.4422
+            }
+        ]
+    },
+    "http-response": {
+        "status": 200,
+        "body": [
+            {
+                "id": 1,
+                "restoName": "Hotel Rahul",
+                "rating": 4.5,
+                "locationLink": "https://maps.app.goo.gl/Dzijtb6aa22ijyAo8",
+                "fssaiLicense": "12345678901234",
+                "openTime": "09:00:00",
+                "closeTime": "09:00:00",
+                "description": "A fine dining experience with authentic Indian cuisine.",
+                "phoneNo": "9876543210",
+                "averageCost": 500.0,
+                "foodType": "VEG",
+                "approved": true
+            },
+            {
+                "id": 4,
+                "restoName": "Hotel Shetkari",
+                "rating": 4.5,
+                "locationLink": "https://maps.app.goo.gl/houcyMPTzHz375UcA",
+                "fssaiLicense": "785412369",
+                "openTime": "09:00:00",
+                "closeTime": "09:00:00",
+                "description": "A fine dining experience with authentic Indian cuisine.",
+                "phoneNo": "9293969598",
+                "averageCost": 350.0,
+                "foodType": "BOTH",
+                "approved": true
+            },
+            {
+                "id": 74,
+                "restoName": "Hotel Zorba",
+                "rating": 4.5,
+                "locationLink": "https://maps.app.goo.gl/houcyMPTzHz375UcA",
+                "fssaiLicense": "785412367",
+                "openTime": "09:00:00",
+                "closeTime": "09:00:00",
+                "description": "A fine dining experience with authentic Indian cuisine.",
+                "phoneNo": "9293969585",
+                "averageCost": 350.0,
+                "foodType": "BOTH",
+                "approved": false
+            },
+            {
+                "id": 75,
+                "restoName": "Hotel Saiba",
+                "rating": 4.0,
+                "locationLink": "https://maps.app.goo.gl/yd8Yt6r7jmtErNtT8",
+                "fssaiLicense": "7854987854",
+                "openTime": "12:00:00",
+                "closeTime": "12:00:00",
+                "description": "A fine dining experience with authentic Indian cuisine.",
+                "phoneNo": "7854296324",
+                "averageCost": 350.0,
+                "foodType": "VEG",
+                "approved": false
+            }
+        ],
+        "status-text": "OK",
+        "headers": {
+            "X-Content-Type-Options": "nosniff",
+            "X-XSS-Protection": "0",
+            "Pragma": "no-cache",
+            "X-Frame-Options": "DENY",
+            "Content-Type": "application/json",
+            "Keep-Alive": "timeout=60",
+            "Connection": "keep-alive"
+        }
+    }
+}

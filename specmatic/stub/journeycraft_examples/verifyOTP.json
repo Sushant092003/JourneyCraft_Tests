@@ -1,0 +1,17 @@
+{
+  "http-request": {
+    "path": "/api/users/verify-otp",
+    "method": "POST",
+    "body": {
+      "email": "amit.guide@gmail.com",
+      "otp": "123456"
+    }
+  },
+  "http-response": {
+    "status": 200,
+    "body": {
+      "verified": true,
+      "message": "OTP verified successfully."
+    }
+  }
+}

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JourneyCraft - Approve Guides</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <div class="sidebar">
+      <h2>JourneyCraft</h2>
+      <nav>
+        <a href="index.html">Dashboard</a>
+        <a href="guides.html" class="active">Guides</a>
+        <a href="restaurants.html">Restaurants</a>
+        <a href="street_locations.html">Street Locations</a>
+      </nav>
+    </div>
+
+    <div class="main-content">
+      <h1>Guide Management</h1>
+
+      <div class="management-grid">
+        <div class="management-section">
+          <h2>Pending Approval</h2>
+          <div class="table-container">
+            <table id="unapprovedGuideTable">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Bio</th>
+                  <th>Phone</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="management-section">
+          <h2>All Guides</h2>
+          <div class="table-container">
+            <table id="approvedGuideTable">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Phone</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dialog-overlay" id="guideDialog">
+      <div class="dialog-box">
+        <div class="dialog-header">
+          <h2>Guide Details</h2>
+          <button class="dialog-close" onclick="closeDialog('guideDialog')">
+            &times;
+          </button>
+        </div>
+        <div class="dialog-content">
+          <div class="detail-item">
+            <label>Name</label>
+            <span id="dialog-guide-name"></span>
+          </div>
+          <div class="detail-item">
+            <label>Bio</label>
+            <span id="dialog-guide-bio"></span>
+          </div>
+          <div class="detail-item">
+            <label>Phone Number</label>
+            <span id="dialog-guide-phone"></span>
+          </div>
+          <div class="detail-item">
+            <label>Email</label>
+            <span id="dialog-guide-email"></span>
+          </div>
+          <div class="detail-item">
+            <label>Experience</label>
+            <span id="dialog-guide-experience"></span>
+          </div>
+          <div class="detail-item">
+            <label>Languages</label>
+            <span id="dialog-guide-languages"></span>
+          </div>
+        </div>
+        <div class="dialog-footer" id="guideDialogFooter"></div>
+      </div>
+    </div>
+
+    <script src="../js/guide.js"></script>
+  </body>
+</html>

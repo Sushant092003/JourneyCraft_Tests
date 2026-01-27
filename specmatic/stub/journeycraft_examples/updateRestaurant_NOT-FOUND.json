@@ -1,0 +1,24 @@
+{
+  "http-request": {
+    "method": "PUT",
+    "path": "/api/restaurants/update/999999",
+    "body": {
+      "restoName": "Sarathi",
+      "rating": 4.9,
+      "locationLink": "https://maps.app.goo.gl/yd8Yt6r7jmtErNtT8",
+      "fssaiLicense": "9876512340",
+      "openTime": "09:00:00",
+      "closeTime": "23:00:00",
+      "description": "Popular restaurant serving Maharashtrian and North Indian cuisine",
+      "phoneNo": "9812508410",
+      "averageCost": 400.0,
+      "foodType": "VEG"
+    }
+  },
+  "http-response": {
+    "status": 404,
+    "body": {
+      "message": "Restaurant not found for the ID"
+    }
+  }
+}

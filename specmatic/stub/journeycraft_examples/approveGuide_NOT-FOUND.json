@@ -1,0 +1,12 @@
+{
+  "http-request": {
+    "method": "POST",
+    "path": "/admin/guide/approve/9999"
+  },
+  "http-response": {
+    "status": 404,
+    "body": {
+      "message": "Guide not Found"
+    }
+  }
+}

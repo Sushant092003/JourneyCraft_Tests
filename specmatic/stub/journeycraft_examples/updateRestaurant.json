@@ -1,0 +1,24 @@
+{
+  "http-request": {
+    "path": "/api/restaurants/update/9",
+    "method": "PUT",
+    "description": "Update restaurant profile details for a specific user",
+    "body": {
+      "restoName": "Hotel Saiba",
+      "rating": 4.3,
+      "locationLink": "https://maps.app.goo.gl/yd8Yt6r7jmtErNtT8",
+      "fssaiLicense": "7854987854",
+      "openTime": "09:00:00",
+      "closeTime": "23:00:00",
+      "description": "Popular restaurant serving Maharashtrian and North Indian cuisine",
+      "phoneNo": "9876543210",
+      "averageCost": 400.0,
+      "foodType": "VEG"
+    }
+  },
+  "http-response": {
+    "status": 200,
+    "status-text": "OK",
+    "description": "Restaurant updated successfully"
+  }
+}

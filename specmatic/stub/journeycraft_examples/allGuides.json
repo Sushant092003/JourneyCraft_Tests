@@ -1,0 +1,66 @@
+{
+  "http-request": {
+    "path": "/api/guides/all-guides",
+    "method": "GET",
+    "description": "This is an example request to fetch all approved guides"
+  },
+  "http-response": {
+    "status": 200,
+    "status-text": "OK",
+    "description": "This is an example response containing a list of approved guides",
+    "body": [
+      {
+        "id": 10,
+        "guidename": "Shantaram Bhat",
+        "experience": 20,
+        "language": "English",
+        "bio": "Experience guide for 10 years . Fluent in Hindi English Marathi and Kannada",
+        "latitude": 16.81229,
+        "longitude": 74.113464,
+        "licenseNumber": "ShantaramBhat",
+        "isAvailable": true,
+        "phoneNo": "9755341298",
+        "approved": true
+      },
+      {
+        "id": 11,
+        "guidename": "Exclusive Guide",
+        "experience": 20,
+        "language": "English",
+        "bio": "Experience guide for 10 years . Fluent in Hindi English Marathi and Kannada",
+        "latitude": 16.81229,
+        "longitude": 74.113464,
+        "licenseNumber": "ExclusiveNum",
+        "isAvailable": true,
+        "phoneNo": "5241639874",
+        "approved": true
+      },
+      {
+        "id": 13,
+        "guidename": "Vedant Bhat",
+        "experience": 20,
+        "language": "English",
+        "bio": "Experience guide for 10 years . Fluent in Hindi English Marathi and Kannada",
+        "latitude": 16.81229,
+        "longitude": 74.113464,
+        "licenseNumber": "VeduGuide",
+        "isAvailable": true,
+        "phoneNo": "2514987630",
+        "approved": true
+      },
+      {
+        "id": 14,
+        "guidename": "Not so New Guide",
+        "experience": 20,
+        "language": "English",
+        "bio": "Experience guide for 10 years . Fluent in Hindi English Marathi and Kannada",
+        "latitude": 16.81229,
+        "longitude": 74.113464,
+        "licenseNumber": "NotsoNewGuide",
+        "isAvailable": true,
+        "phoneNo": "2514987630",
+        "approved": true
+      }
+    ]
+  }
+}

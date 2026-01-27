@@ -1,0 +1,45 @@
+{
+  "http-request": {
+    "path": "/api/guides/register/guide/11",
+    "method": "POST",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "bio": "Expert in Historic Info",
+      "experience": 20,
+      "isAvailable": true,
+      "language": "English",
+      "latitude": 16.81229,
+      "licenseNumber": "AmitGuide",
+      "longitude": 74.113464,
+      "guidename": "The Simple Guide",
+      "phoneNo": "9876543210"
+    },
+    "description": "This is an example of a request to create a new entity at the /api/guides/register/guide/301 endpoint "
+  },
+  "http-response": {
+    "status": 201,
+    "body": {
+      "id": 14,
+      "guidename": "Amit Pawar",
+      "experience": 20,
+      "language": "English",
+      "bio": "Expert in Historic Info",
+      "latitude": 16.81229,
+      "longitude": 74.113464,
+      "licenseNumber": "AmitGuide",
+      "isAvailable": true,
+      "phoneNo": "2514987630",
+      "approved": false
+    },
+    "status-text": "Created",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "description": "This is an example of a response after creating a new entity at the /api/guides/register/guide/301 endpoint "
+  }
+}
+
+
+

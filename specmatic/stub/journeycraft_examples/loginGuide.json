@@ -1,0 +1,23 @@
+{
+  "http-request": {
+    "path": "/api/users/login",
+    "method": "POST",
+    "description": "Login as GUIDE",
+    "body": {
+      "email": "amit.guide@gmail.com",
+      "password": "Test@1234"
+    }
+  },
+  "http-response": {
+    "status": 200,
+    "status-text": "OK",
+    "description": "Guide login success",
+    "body": {
+      "id": 11,
+      "username": "AmitGuide",
+      "email": "amit.guide@gmail.com",
+      "role": "GUIDE",
+      "message": "Login successful"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "http-request": {
+    "path": "/admin/counts",
+    "method": "GET",
+    "description": "This is an example to fetch counts of all users"
+  },
+  "http-response": {
+    "status": 200,
+    "status-text": "OK",
+    "description": "This is an example response to show all counts",
+    "body": {
+      "totalGuides": 4,
+      "totalRestaurants": 3,
+      "activeGuides": 4,
+      "activeRestaurants": 3,
+      "pendingGuides": 0,
+      "pendingRestaurants": 0
+    }
+  }
+}

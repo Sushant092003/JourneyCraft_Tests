@@ -1,0 +1,35 @@
+{
+  "http-request": {
+    "path": "/api/users/all-users",
+    "method": "GET",
+    "description": "Fetch all users"
+  },
+  "http-response": {
+    "status": 200,
+    "status-text": "OK",
+    "description": "List of all users",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": [
+      {
+        "id": 9,
+        "name": "Sushant09",
+        "email": "sushantbhat5445@gmail.com",
+        "role": "RESTAURANT"
+      },
+      {
+        "id": 11,
+        "name": "AmitGuide",
+        "email": "amit.guide@gmail.com",
+        "role": "GUIDE"
+      },
+      {
+        "id": 12,
+        "name": "SaiRestaurant",
+        "email": "sai@restaurant.com",
+        "role": "RESTAURANT"
+      }
+    ]
+  }
+}

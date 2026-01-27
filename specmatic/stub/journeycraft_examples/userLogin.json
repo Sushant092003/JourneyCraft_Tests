@@ -1,0 +1,23 @@
+{
+  "http-request": {
+    "path": "api/users/login",
+    "method": "POST",
+    "description": "Login request with valid credentials",
+    "body": {
+      "email": "sushantbhat5445@gmail.com",
+      "password": "susBhat@2003"
+    }
+  },
+  "http-response": {
+    "status": 200,
+    "status-text": "OK",
+    "description": "Successful login response",
+    "body": {
+      "id": 9,
+      "username": "Sushant09",
+      "email": "sushantbhat5445@gmail.com",
+      "role": "RESTAURANT",
+      "message": "Login successful"
+    }
+  }
+}

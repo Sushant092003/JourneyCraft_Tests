@@ -1,0 +1,23 @@
+{
+  "http-request": {
+    "path": "/api/location/street-location",
+    "method": "POST",
+    "description": "Create street location and auto fill lat/lng",
+    "body": {
+      "name": "FC Road",
+      "link": "https://maps.app.goo.gl/i4oAaecs1FdJ9sDc6"
+    }
+  },
+  "http-response": {
+    "status": 200,
+    "status-text": "OK",
+    "description": "Street location saved",
+    "body": {
+      "id": 1,
+      "name": "FC Road",
+      "link": "https://maps.app.goo.gl/i4oAaecs1FdJ9sDc6",
+      "lat": 20.520430,
+      "lng": 76.856744
+    }
+  }
+}

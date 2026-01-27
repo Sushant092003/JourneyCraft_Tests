@@ -1,0 +1,10 @@
+{
+  "http-request": {
+    "method": "POST",
+    "path": "/api/location/street-location",
+    "body": {}
+  },
+  "http-response": {
+    "status": 400
+  }
+}

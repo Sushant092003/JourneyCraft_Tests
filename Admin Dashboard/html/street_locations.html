@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Street Locations - JourneyCraft</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <div class="sidebar">
+      <h2>JourneyCraft</h2>
+      <nav>
+        <a href="index.html">Dashboard</a>
+        <a href="guides.html">Guides</a>
+        <a href="restaurants.html">Restaurants</a>
+        <a href="street-locations.html" class="active">Street Locations</a>
+      </nav>
+    </div>
+
+    <div class="main-content">
+      <h1>Add Street Location</h1>
+
+      <div class="card">
+        <form id="streetLocationForm">
+          <label>Place Name</label>
+          <input type="text" id="name" required />
+
+          <label>Google Maps Link</label>
+          <input type="text" id="link" required />
+
+          <button type="submit">Save Location</button>
+        </form>
+
+        <p id="statusMsg"></p>
+      </div>
+    </div>
+
+    <script src="../js/street_location.js"></script>
+  </body>
+</html>

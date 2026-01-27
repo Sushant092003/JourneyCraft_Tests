@@ -1,0 +1,682 @@
+openapi: 3.0.3
+
+info:
+  title: JourneyCraft API
+  version: 1.0.0
+  description: Backend API for JourneyCraft travel application
+
+servers:
+  - url: http://localhost:8080
+
+tags:
+  - name: Admin
+  - name: Users
+  - name: Guides
+  - name: Restaurants
+  - name: Public
+  - name: Location
+  - name: StreetLocation
+
+paths:
+
+  /admin/guide/unapproved:
+    get:
+      tags:
+        - Admin
+      summary: Get unapproved guides
+      responses:
+        "200":
+          description: List of unapproved guides
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Guide"
+
+  /admin/guide/approve/{id}:
+    post:
+      tags:
+        - Admin
+      summary: Approve a guide
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: Guide approved
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+        "404":
+          description: Guide Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+  /admin/restaurant/unapproved:
+    get:
+      tags:
+        - Admin
+      summary: Get unapproved restaurants
+      responses:
+        "200":
+          description: List of unapproved restaurants
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Restaurant"
+
+  /admin/restaurant/approve/{id}:
+    post:
+      tags:
+        - Admin
+      summary: Approve a restaurant
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: Restaurant approved
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: String
+        "404":
+          description: Restaurant Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+  /admin/counts:
+    get:
+      tags:
+        - Admin
+      summary: Get dashboard counts
+      responses:
+        "200":
+          description: Counts
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminCounts"
+
+  /api/users/all-users:
+    get:
+      tags:
+        - Users
+      summary: Get all users
+      responses:
+        "200":
+          description: List of users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/User"
+
+  /api/users/find:
+    get:
+      tags:
+        - Users
+      summary: Find user by email
+      parameters:
+        - name: email
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: User found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        "404":
+          description: User not found
+
+  /api/users/login:
+    post:
+      tags:
+        - Users
+      summary: Login user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserLoginRequest"
+      responses:
+        "200":
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LoginResponse"
+        "401":
+          description: Invalid credentials
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+  /api/users/register:
+    post:
+      tags:
+        - Users
+      summary: Register user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+      responses:
+        "201":
+          description: User created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserResponse"
+        "409":
+          description: User already exists
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+  /api/users/role/{role}:
+    get:
+      tags:
+        - Users
+      summary: Get users by role
+      parameters:
+        - name: role
+          in: path
+          required: true
+          schema:
+            type: string
+            enum: [GUIDE, RESTAURANT]
+      responses:
+        "200":
+          description: List of users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/UserDetailsDTO"
+
+  /api/users/send-otp:
+    post:
+      tags:
+        - Users
+      summary: Send OTP
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/OtpRequest"
+      responses:
+        "200":
+          description: OTP sent successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+  /api/users/verify-otp:
+    post:
+      tags:
+        - Users
+      summary: Verify OTP
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/OtpRequest"
+      responses:
+        "200":
+          description: OTP verified
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  verified:
+                    type: boolean
+                  message:
+                    type: string
+
+        "401":
+          description: Invalid OTP
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  verified:
+                    type: boolean
+                  message:
+                    type: string
+
+  /api/guides/register/guide/{userId}:
+    post:
+      tags:
+        - Guides
+      summary: Register guide
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GuideDTO"
+      responses:
+        "201":
+          description: Guide created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Guide"
+        "409":
+          description: Guide already exists
+
+  /api/guides/guide/{id}:
+    get:
+      tags:
+        - Guides
+      summary: Get guide by id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: Guide found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Guide"
+
+  /api/guides/all-guides:
+    get:
+      tags:
+        - Guides
+      summary: Get all guides
+      responses:
+        "200":
+          description: List of guides
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Guide"
+
+  /api/restaurants/register/restaurant/{userId}:
+    post:
+      tags:
+        - Restaurants
+      summary: Register restaurant
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RestaurantDTO"
+      responses:
+        "201":
+          description: Restaurant created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Restaurant"
+
+        "409":
+          description: Restaurant Already exists
+
+
+  /api/restaurants/restaurant/{id}:
+    get:
+      tags:
+        - Restaurants
+      summary: Get restaurant by id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: Restaurant found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Restaurant"
+
+  /api/restaurants/all-restaurants:
+    get:
+      tags:
+        - Restaurants
+      summary: Get all Restaurants
+      responses:
+        "200":
+          description: List of Restaurants
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Restaurant"
+
+  /api/restaurants/update/{userId}:
+    put:
+      tags:
+        - Restaurant
+      summary: Update Restaurant Profile
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Restaurant"
+
+      responses:
+        "200":
+          description: Restaurant Update Successfully
+        "404":
+          description: Restaurant not found for given user ID
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+
+
+  /public/find-guides:
+    post:
+      tags:
+        - Public
+      summary: Find nearby guides
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/LatLng"
+      responses:
+        "200":
+          description: Nearby guides
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Guide"
+
+  /api/location/nearby:
+    post:
+      tags:
+        - Location
+      summary: Get nearby street locations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LatLng"
+      responses:
+        "200":
+          description: Nearby locations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/StreetLocations"
+
+
+  /api/location/street-location:
+    post:
+      tags: StreetLocation
+      summary: Create street location and auto-extract latitude and longitude
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StreetLatLng"
+      responses:
+        "200":
+          description: StreetLocation saved with lat and lng
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StreetLocations"
+        "400":
+          description: Invalid request Body
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id: { type: integer, format: int64 }
+        name: { type: string }
+        email: { type: string }
+        password: { type: string }
+        role:
+          type: string
+          enum: [GUIDE, RESTAURANT]
+
+    UserResponse:
+      type: object
+      properties:
+        id: {type: integer, format: int64}
+        name: {type: string}
+        email: {type: string}
+        role:
+          type: string
+          enum: [GUIDE, RESTAURANT]
+
+    Guide:
+      type: object
+      properties:
+        id: { type: integer }
+        guidename: { type: string }
+        experience: { type: integer }
+        language: { type: string }
+        bio: { type: string }
+        latitude: { type: number }
+        longitude: { type: number }
+        licenseNumber: { type: string }
+        isAvailable: { type: boolean }
+        phoneNo: { type: string }
+        approved: { type: boolean }
+
+    GuideDTO:
+      type: object
+      properties:
+        guidename: { type: string }
+        experience: { type: integer }
+        language: { type: string }
+        bio: { type: string }
+        latitude: { type: number }
+        longitude: { type: number }
+        licenseNumber: { type: string }
+        isAvailable: { type: boolean }
+        phoneNo: { type: string }
+
+    Restaurant:
+      type: object
+      properties:
+        id: { type: integer }
+        restoName: { type: string }
+        rating: { type: number }
+        locationLink: { type: string }
+        fssaiLicense: { type: string }
+        openTime: { type: string }
+        closeTime: { type: string }
+        description: { type: string }
+        phoneNo: { type: string }
+        averageCost: { type: number }
+        foodType:
+          type: string
+          enum: [VEG, NON_VEG, BOTH]
+        approved: { type: boolean }
+
+    RestaurantDTO:
+      type: object
+      properties:
+        restoName: { type: string }
+        rating: { type: number }
+        locationLink: { type: string }
+        fssaiLicense: { type: string }
+        openTime: { type: string }
+        closeTime: { type: string }
+        description: { type: string }
+        phoneNo: { type: string }
+        averageCost: { type: number }
+        foodType:
+          type: string
+          enum: [VEG, NON_VEG, BOTH]
+
+    LatLng:
+      type: object
+      properties:
+        lat: { type: number }
+        lng: { type: number }
+
+    StreetLocations:
+      type: object
+      properties:
+        id: { type: integer }
+        name: { type: string }
+        link: { type: string }
+        lat: { type: number }
+        lng: { type: number }
+
+    StreetLatLng:
+      type: object
+      properties:
+        name: {type: string}
+        link: {type: string}
+
+    UserDetailsDTO:
+      type: object
+      properties:
+        id: { type: integer }
+        email: { type: string }
+        name: { type: string }
+        phoneNo: { type: string }
+        extraInfo: { type: string }
+
+    OtpRequest:
+      type: object
+      properties:
+        email: { type: string }
+        otp: { type: string }
+
+    AdminCounts:
+      type: object
+      properties:
+        totalGuides: { type: integer }
+        totalRestaurants: { type: integer }
+        activeGuides: { type: integer }
+        activeRestaurants: { type: integer }
+        pendingGuides: { type: integer }
+        pendingRestaurants: { type: integer }
+
+    UserLoginRequest:
+      type: object
+      properties:
+        email: { type: string }
+        password: { type: string }
+
+    LoginResponse:
+      type: object
+      properties:
+        id: { type: integer }
+        username: { type: string }
+        email: { type: string }
+        role: { type: string }
+        message: { type: string }
+
+    VerifyOtpResponse:
+      type: object
+      properties:
+        verified:
+          type: boolean
+        message:
+          type: string
+

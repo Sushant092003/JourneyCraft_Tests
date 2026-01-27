@@ -1,0 +1,25 @@
+{
+  "http-request": {
+    "path": "/api/restaurants/register/restaurant/12",
+    "method": "POST",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "averageCost": 350,
+      "closeTime": "09:00",
+      "description": "A fine dining experience with authentic Indian cuisine.",
+      "fssaiLicense": "785412367",
+      "locationLink": "https://maps.app.goo.gl/houcyMPTzHz375UcA",
+      "restoName": "Sai Restaurant",
+      "openTime": "09:00",
+      "phoneNo": "9293969585",
+      "rating": 4.5,
+      "foodType": "BOTH"
+    },
+    "description": "This is an example of a request to create a new entity at the /api/restaurant/register/restaurant/638 endpoint "
+  },
+  "http-response": {
+    "status": 409
+  }
+}

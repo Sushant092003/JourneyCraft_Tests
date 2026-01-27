@@ -1,0 +1,16 @@
+{
+  "http-request": {
+    "method": "POST",
+    "path": "/api/users/login",
+    "body": {
+      "email": "wrong@test.com",
+      "password": "wrongpass"
+    }
+  },
+  "http-response": {
+    "status": 401,
+    "body": {
+      "message": "Invalid OTP"
+    }
+  }
+}

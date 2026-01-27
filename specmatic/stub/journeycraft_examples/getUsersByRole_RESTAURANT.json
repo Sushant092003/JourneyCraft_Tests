@@ -1,0 +1,28 @@
+{
+  "http-request": {
+    "path": "/api/users/role/RESTAURANT",
+    "method": "GET",
+    "description": "Get all users with role RESTAURANT"
+  },
+  "http-response": {
+    "status": 200,
+    "status-text": "OK",
+    "description": "List of restaurant users",
+    "body": [
+      {
+        "id": 10,
+        "email": "hotel@saiba.com",
+        "name": "Sai Restaurant",
+        "phoneNo": "9988776655",
+        "extraInfo": "Pure veg restaurant"
+      },
+      {
+        "id": 11,
+        "email": "tandoor@punjab.com",
+        "name": "Hotel Zorba",
+        "phoneNo": "8877665544",
+        "extraInfo": "North Indian cuisine"
+      }
+    ]
+  }
+}

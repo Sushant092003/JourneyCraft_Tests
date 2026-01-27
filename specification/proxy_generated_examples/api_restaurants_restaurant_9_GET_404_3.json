@@ -1,0 +1,31 @@
+{
+    "http-request": {
+        "path": "/api/restaurants/restaurant/9",
+        "method": "GET",
+        "headers": {
+            "Connection": "keep-alive",
+            "sec-ch-ua-platform": "\"Windows\"",
+            "Accept": "application/json, text/plain, */*",
+            "sec-ch-ua": "\"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"144\", \"Microsoft Edge\";v=\"144\"",
+            "sec-ch-ua-mobile": "?0",
+            "Origin": "http://localhost:5173",
+            "Sec-Fetch-Site": "same-site",
+            "Sec-Fetch-Mode": "cors",
+            "Sec-Fetch-Dest": "empty",
+            "Accept-Encoding": "gzip, deflate, br, zstd"
+        }
+    },
+    "http-response": {
+        "status": 404,
+        "body": "",
+        "status-text": "Not Found",
+        "headers": {
+            "X-Content-Type-Options": "nosniff",
+            "X-XSS-Protection": "0",
+            "Pragma": "no-cache",
+            "X-Frame-Options": "DENY",
+            "Keep-Alive": "timeout=60",
+            "Connection": "keep-alive"
+        }
+    }
+}

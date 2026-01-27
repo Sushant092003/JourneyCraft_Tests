@@ -1,0 +1,23 @@
+{
+  "http-request": {
+    "path": "/api/users/find",
+    "method": "GET",
+    "query": {
+      "email": "amit.guide@gmail.com"
+    },
+    "description": "This is an example of a request to retrieve a specific entity at the /api/users/find endpoint"
+  },
+  "http-response": {
+    "status": 200,
+    "body": {
+      "id": 11,
+      "email": "amit.guide@gmail.com",
+      "role": "GUIDE"
+    },
+    "status-text": "OK",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "description": "This is an example of a response "
+  }
+}

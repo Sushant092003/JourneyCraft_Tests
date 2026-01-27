@@ -1,0 +1,12 @@
+{
+  "http-request": {
+    "method": "POST",
+    "path": "/admin/restaurant/approve/9999"
+  },
+  "http-response": {
+    "status": 404,
+    "body": {
+      "message": "Restaurant not found"
+    }
+  }
+}

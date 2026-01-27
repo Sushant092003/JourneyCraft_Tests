@@ -1,0 +1,12 @@
+{
+  "http-request": {
+    "method": "GET",
+    "path": "/api/users/find",
+    "query": {
+      "email": "notfound@test.com"
+    }
+  },
+  "http-response": {
+    "status": 404
+  }
+}

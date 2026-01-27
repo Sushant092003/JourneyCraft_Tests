@@ -1,0 +1,20 @@
+{
+  "http-request": {
+    "path": "/api/guides/register/guide/11",
+    "method": "POST",
+    "body": {
+      "bio": "Expert in Historic Info",
+      "experience": 20,
+      "isAvailable": true,
+      "language": "English",
+      "latitude": 16.81229,
+      "licenseNumber": "AmitGuide",
+      "longitude": 74.113464,
+      "guidename": "The Simple Guide",
+      "phoneNo": "9876543210"
+    }
+  },
+  "http-response": {
+    "status": 409
+  }
+}

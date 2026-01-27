@@ -1,0 +1,21 @@
+{
+  "http-request": {
+    "path": "/api/users/role/GUIDE",
+    "method": "GET",
+    "description": "Get all users with role GUIDE"
+  },
+  "http-response": {
+    "status": 200,
+    "status-text": "OK",
+    "description": "List of guide users",
+    "body": [
+      {
+        "id": 10,
+        "email": "amit.guide@gmail.com",
+        "name": "Amit Pawar",
+        "phoneNo": "9876543210",
+        "extraInfo": "Expert in historical tours"
+      }
+    ]
+  }
+}
