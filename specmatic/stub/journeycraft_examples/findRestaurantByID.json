@@ -1,6 +1,6 @@
 {
   "http-request": {
-    "path": "/api/restaurants/restaurant/9",
+    "path": "/api/restaurants/restaurant/75",
     "method": "GET",
     "description": "This is an example of a request to retrieve a specific entity at the /api/restaurant/restaurant/378 endpoint"
   },

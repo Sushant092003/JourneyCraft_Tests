@@ -1,22 +1,22 @@
 {
   "http-request": {
-    "path": "/api/guides/guide/54",
+    "path": "/api/guides/guide/11",
     "method": "GET",
     "description": "This is an example of a request to retrieve a specific entity at the /api/guides/guide/230 endpoint"
   },
   "http-response": {
     "status": 200,
     "body": {
-      "id": 1,
-      "guidename": "Shantaram Bhat",
+      "id": 14,
+      "guidename": "Amit Pawar",
       "experience": 20,
       "language": "English",
-      "bio": "Experience guide for 10 years . Fluent in Hindi English Marathi and Kannada",
+      "bio": "Expert in Historic Info",
       "latitude": 16.81229,
       "longitude": 74.113464,
-      "licenseNumber": "ShantaramBhat",
+      "licenseNumber": "AmitGuide",
       "isAvailable": true,
-      "phoneNo": "9755341298",
+      "phoneNo": "2514987630",
       "approved": true
     },
     "status-text": "OK",

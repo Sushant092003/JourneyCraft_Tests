@@ -131,7 +131,7 @@ function viewRestaurantDetails(id, isApproved) {
       document.getElementById("dialog-restaurant-address").textContent =
         restaurant.locationLink || "Not specified";
       document.getElementById("dialog-restaurant-cuisine").textContent =
-        restaurant.FoodType || "Not specified";
+        restaurant.foodType || "Not specified";
 
       const footer = document.getElementById("restaurantDialogFooter");
       if (isApproved) {

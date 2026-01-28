@@ -1,6 +1,6 @@
 {
     "http-request": {
-        "path": "/admin/restaurant/approve/78",
+        "path": "/admin/restaurant/approve/75",
         "method": "POST",
         "description": "This is an example of a request to create a new entity at the /admin/restaurant/approve/748 endpoint "
     },

@@ -1,0 +1,14 @@
+{
+  "cookies": [],
+  "origins": [
+    {
+      "origin": "http://localhost:5173",
+      "localStorage": [
+        {
+          "name": "persist:root",
+          "value": "{\"auth\":\"{\\\"userId\\\":11,\\\"role\\\":\\\"GUIDE\\\",\\\"email\\\":\\\"amit.guide@gmail.com\\\",\\\"username\\\":\\\"AmitGuide\\\",\\\"isAuthenticated\\\":true,\\\"message\\\":null}\",\"_persist\":\"{\\\"version\\\":-1,\\\"rehydrated\\\":true}\"}"
+        }
+      ]
+    }
+  ]
+}
