@@ -1,3 +1,12 @@
+## ⚠️ IMPORTANT: Run Backend At Least Once Before Frontend
+
+> The backend **must be started at least once** before running the frontend or admin dashboard.
+
+### Why?
+
+- The database tables (`users`, `guide`, `restaurant`, `streetLocations`, etc.) are **auto-created by Hibernate**.
+- If you run the frontend first, the APIs will fail because the tables **do not exist yet**.
+
 # 🗄️ JourneyCraft – SQL & Backend Configuration Guide
 
 This guide explains how to set up the MySQL database and configure the backend before running the JourneyCraft Spring Boot application.
