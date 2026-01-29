@@ -1,9 +1,8 @@
-const API_BASE = "http://127.0.0.1:9000";
 let currentRestaurantId = null;
 let isApprovedRestaurant = false;
 
 function loadRestaurants() {
-  fetch(`${API_BASE}/admin/restaurant/unapproved`, {
+  fetch(buildUrl("/admin/restaurant/unapproved"), {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -52,7 +51,7 @@ function loadRestaurants() {
     });
 
   // Load approved restaurants
-  fetch(`${API_BASE}/api/restaurants/all-restaurants`, {
+  fetch(buildUrl("/api/restaurants/all-restaurants"), {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -103,7 +102,7 @@ function loadRestaurants() {
 function viewRestaurantDetails(id, isApproved) {
   currentRestaurantId = id;
   isApprovedRestaurant = isApproved;
-  fetch(`${API_BASE}/api/restaurants/restaurant/${id}`, {
+  fetch(buildUrl(`/api/restaurants/restaurant/${id}`), {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -162,7 +161,7 @@ function approveRestaurant(id) {
   approveBtn.disabled = true;
   approveBtn.textContent = "Approving...";
 
-  fetch(`${API_BASE}/admin/restaurant/approve/${id}`, {
+  fetch(buildUrl(`/admin/restaurant/approve/${id}`), {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -199,7 +198,7 @@ function rejectRestaurant(id) {
     rejectBtn.disabled = true;
     rejectBtn.textContent = "Rejecting...";
 
-    fetch(`${API_BASE}/admin/restaurant/reject/${id}`, {
+    fetch(buildUrl(`/admin/restaurant/reject/${id}`), {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

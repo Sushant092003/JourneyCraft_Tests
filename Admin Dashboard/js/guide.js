@@ -1,9 +1,8 @@
-const API_BASE = "http://127.0.0.1:9000";
 let currentGuideId = null;
 let isApprovedGuide = false;
 
 function loadGuides() {
-  fetch(`${API_BASE}/admin/guide/unapproved`)
+  fetch(buildUrl("/admin/guide/unapproved"))
     .then((res) => res.json())
     .then((guides) => {
       const tbody = document
@@ -29,7 +28,7 @@ function loadGuides() {
       alert("Error loading unapproved guides list");
     });
 
-  fetch(`${API_BASE}/api/guides/all-guides`)
+  fetch(buildUrl("/api/guides/all-guides"))
     .then((res) => res.json())
     .then((guides) => {
       const tbody = document
@@ -58,7 +57,7 @@ function loadGuides() {
 function viewGuideDetails(id, isApproved) {
   currentGuideId = id;
   isApprovedGuide = isApproved;
-  fetch(`${API_BASE}/api/guides/guide/${id}`)
+  fetch(buildUrl(`/api/guides/guide/${id}`))
     .then((res) => {
       if (!res.ok) throw new Error("Failed to fetch guide details");
       return res.json();
@@ -107,7 +106,7 @@ function approveGuide(id) {
   approveBtn.disabled = true;
   approveBtn.textContent = "Approving...";
 
-  fetch(`${API_BASE}/admin/guide/approve/${id}`, {
+  fetch(buildUrl(`/admin/guide/approve/${id}`), {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

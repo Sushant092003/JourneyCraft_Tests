@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { api } from "../config/api";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { LogOut } from "lucide-react";
@@ -19,14 +19,12 @@ const Restaurant = () => {
   useEffect(() => {
     const fetchRestaurantProfile = async () => {
       try {
-        const response = await axios.get(
-          `http://127.0.0.1:9000/api/restaurants/restaurant/${userId}`
-        );
+        const response = await api.get(`/api/restaurants/restaurant/${userId}`);
         if (response.status === 200 && response.data) {
           setRestaurant(response.data);
           console.log(
             "Restaurant profile fetched successfully:",
-            response.data
+            response.data,
           );
         }
       } catch (error) {
@@ -72,27 +70,26 @@ const Restaurant = () => {
     try {
       const isUpdating = !!restaurant;
       const url = isUpdating
-        ? `http://127.0.0.1:9000/api/restaurants/update/${userId}`
-        : `http://127.0.0.1:9000/api/restaurants/register/restaurant/${userId}`;
+        ? `/api/restaurants/update/${userId}`
+        : `/api/restaurants/register/restaurant/${userId}`;
 
-        const payload = {
-            ...values,
-            rating: Number(values.rating),
-            averageCost: Number(values.averageCost),
-            approved: false,
-        };
+      const payload = {
+        ...values,
+        rating: Number(values.rating),
+        averageCost: Number(values.averageCost),
+        approved: false,
+      };
 
       console.log("Submitting restaurant profile:", values);
-      const method = isUpdating ? axios.put : axios.post;
+      const method = isUpdating ? api.put : api.post;
       const response = await method(url, payload);
 
       if (response.status === 200 || response.status === 201) {
         toast.success(
-          isUpdating ? "Restaurant Updated" : "Restaurant Under Consideration"
+          isUpdating ? "Restaurant Updated" : "Restaurant Under Consideration",
         );
         setRestaurant(payload);
         setIsFormVisible(false);
-
       }
     } catch (error) {
       console.error("Error submitting restaurant profile:", error);
@@ -144,20 +141,17 @@ const Restaurant = () => {
                 <>
                   <button
                     onClick={() => setIsFormVisible(true)}
-                    className="mb-4 px-6 py-3 bg-pink-600 text-white font-semibold rounded-md hover:bg-pink-500"
-                  >
+                    className="mb-4 px-6 py-3 bg-pink-600 text-white font-semibold rounded-md hover:bg-pink-500">
                     Update Profile
                   </button>
                   <button
                     onClick={() => setIsProfileVisible(true)}
-                    className="mb-4 px-6 py-3 bg-green-600 text-white font-semibold rounded-md hover:bg-green-500"
-                  >
+                    className="mb-4 px-6 py-3 bg-green-600 text-white font-semibold rounded-md hover:bg-green-500">
                     View Profile
                   </button>
                   <button
                     onClick={handleLogout}
-                    className="flex items-center bg-red-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-red-600"
-                  >
+                    className="flex items-center bg-red-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-red-600">
                     <LogOut className="mr-2" /> Logout
                   </button>
                 </>
@@ -165,14 +159,12 @@ const Restaurant = () => {
                 <>
                   <button
                     onClick={() => setIsProfileVisible(true)}
-                    className="mb-4 px-6 py-3 bg-green-600 text-white font-semibold rounded-md hover:bg-green-500"
-                  >
+                    className="mb-4 px-6 py-3 bg-green-600 text-white font-semibold rounded-md hover:bg-green-500">
                     View Profile
                   </button>
                   <button
                     onClick={handleLogout}
-                    className="mt-4 flex items-center bg-red-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-red-600"
-                  >
+                    className="mt-4 flex items-center bg-red-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-red-600">
                     <LogOut className="mr-2" /> Logout
                   </button>
                 </>
@@ -181,14 +173,12 @@ const Restaurant = () => {
               <>
                 <button
                   onClick={() => setIsFormVisible(true)}
-                  className="mb-4 px-6 py-3 bg-pink-600 text-white font-semibold rounded-md hover:bg-pink-500"
-                >
+                  className="mb-4 px-6 py-3 bg-pink-600 text-white font-semibold rounded-md hover:bg-pink-500">
                   Create Profile
                 </button>
                 <button
                   onClick={handleLogout}
-                  className="flex items-center bg-red-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-red-600"
-                >
+                  className="flex items-center bg-red-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-red-600">
                   <LogOut className="mr-2" /> Logout
                 </button>
               </>
@@ -204,8 +194,7 @@ const Restaurant = () => {
                 enableReinitialize
                 initialValues={initialValues}
                 validationSchema={validationSchema}
-                onSubmit={handleRestaurantSubmit}
-              >
+                onSubmit={handleRestaurantSubmit}>
                 {({ isSubmitting }) => (
                   <Form>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -213,8 +202,7 @@ const Restaurant = () => {
                         <div key={key}>
                           <label
                             htmlFor={key}
-                            className="block text-sm font-medium text-gray-700"
-                          >
+                            className="block text-sm font-medium text-gray-700">
                             {key.charAt(0).toUpperCase() + key.slice(1)}
                           </label>
                           <div className="mt-2 border border-gray-900 rounded-md shadow-sm">
@@ -223,8 +211,7 @@ const Restaurant = () => {
                                 as="select"
                                 id={key}
                                 name={key}
-                                className="block w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 focus:z-10 focus:border-pink-500 focus:outline-none focus:ring-pink-500 sm:text-sm"
-                              >
+                                className="block w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 focus:z-10 focus:border-pink-500 focus:outline-none focus:ring-pink-500 sm:text-sm">
                                 <option disabled value="">
                                   Select Food Type
                                 </option>
@@ -260,21 +247,19 @@ const Restaurant = () => {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full rounded-md bg-pink-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-pink-500"
-                      >
+                        className="w-full rounded-md bg-pink-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-pink-500">
                         {isSubmitting
                           ? restaurant
                             ? "Updating..."
                             : "Submitting..."
                           : restaurant
-                          ? "Update Restaurant"
-                          : "Add Restaurant"}
+                            ? "Update Restaurant"
+                            : "Add Restaurant"}
                       </button>
                       <button
                         type="button"
                         onClick={() => setIsFormVisible(false)}
-                        className="w-full rounded-md bg-gray-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-600"
-                      >
+                        className="w-full rounded-md bg-gray-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-600">
                         Cancel
                       </button>
                     </div>
@@ -286,9 +271,9 @@ const Restaurant = () => {
         )}
         {isProfileVisible && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm transition-all duration-300">
-          <div className="w-full max-w-2xl mx-6 bg-white rounded-3xl shadow-2xl overflow-hidden animate-fadeIn">
-            <div className="p-8">
-              <h2 className="text-3xl font-bold text-blue-gray-800 mb-8 text-center">
+            <div className="w-full max-w-2xl mx-6 bg-white rounded-3xl shadow-2xl overflow-hidden animate-fadeIn">
+              <div className="p-8">
+                <h2 className="text-3xl font-bold text-blue-gray-800 mb-8 text-center">
                   🍽️ Restaurant Profile
                 </h2>
 
@@ -315,15 +300,14 @@ const Restaurant = () => {
                         restaurant.foodType === "VEG"
                           ? "text-green-700 bg-green-100"
                           : restaurant.foodType === "NON_VEG"
-                          ? "text-red-700 bg-red-100"
-                          : "text-gray-800 bg-gray-100"
-                      }`}
-                    >
+                            ? "text-red-700 bg-red-100"
+                            : "text-gray-800 bg-gray-100"
+                      }`}>
                       {restaurant.foodType}
                     </span>
                   </div>
                   <div className="flex flex-col">
-                  <span className="text-sm text-gray-500">Description</span>
+                    <span className="text-sm text-gray-500">Description</span>
                     <span className="font-medium text-gray-700">
                       {restaurant.description}
                     </span>
@@ -331,13 +315,13 @@ const Restaurant = () => {
                   <div className="flex flex-col">
                     <span className="text-sm text-gray-500">Open Time</span>
                     <span className="font-semibold text-gray-800">
-                      {restaurant.openTime.slice(0,5)} A.M
+                      {restaurant.openTime.slice(0, 5)} A.M
                     </span>
                   </div>
                   <div className="flex flex-col">
                     <span className="text-sm text-gray-500">Close Time</span>
                     <span className="font-semibold text-gray-800">
-                      {restaurant.closeTime.slice(0,5)} P.M
+                      {restaurant.closeTime.slice(0, 5)} P.M
                     </span>
                   </div>
                   <div className="flex flex-col">
@@ -353,9 +337,9 @@ const Restaurant = () => {
                     </span>
                   </div>
                   <div className="flex flex-col ">
-                  <span className="text-sm text-gray-500">Average Cost</span>
+                    <span className="text-sm text-gray-500">Average Cost</span>
                     <span className="font-semibold text-gray-800">
-                    ₹ {restaurant.averageCost} 
+                      ₹ {restaurant.averageCost}
                     </span>
                   </div>
                   <div className="flex flex-col ">
@@ -364,18 +348,16 @@ const Restaurant = () => {
                       href={restaurant.locationLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-600 hover:underline font-semibold"
-                    >
+                      className="text-blue-600 hover:underline font-semibold">
                       View on map
                     </a>
-                  </div>  
+                  </div>
                 </div>
 
                 {/* Close Button */}
                 <button
                   onClick={() => setIsProfileVisible(false)}
-                  className="mt-10 w-full rounded-lg bg-gradient-to-r from-red-500 to-red-600 px-6 py-3 text-white font-bold hover:from-red-600 hover:to-red-700 transition-all duration-300"
-                >
+                  className="mt-10 w-full rounded-lg bg-gradient-to-r from-red-500 to-red-600 px-6 py-3 text-white font-bold hover:from-red-600 hover:to-red-700 transition-all duration-300">
                   Close Profile
                 </button>
               </div>

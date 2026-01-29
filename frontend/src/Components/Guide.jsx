@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { api } from "../config/api";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { LogOut } from "lucide-react";
@@ -19,9 +19,7 @@ const Guide = () => {
   useEffect(() => {
     const fetchGuideProfile = async () => {
       try {
-        const response = await axios.get(
-          `http://127.0.0.1:9000/api/guides/guide/${userId}`
-        );
+        const response = await api.get(`/api/guides/guide/${userId}`);
         if (response.status === 200 && response.data) {
           setGuide(response.data);
         }
@@ -66,16 +64,16 @@ const Guide = () => {
     try {
       const isUpdating = !!guide;
       const url = isUpdating
-        ? `http://127.0.0.1:9000/api/guides/update/${userId}`
-        : `http://127.0.0.1:9000/api/guides/register/guide/${userId}`;
+        ? `/api/guides/update/${userId}`
+        : `/api/guides/register/guide/${userId}`;
 
       values.approved = false;
-      const method = isUpdating ? axios.put : axios.post;
+      const method = isUpdating ? api.put : api.post;
       const response = await method(url, values);
 
       if (response.status === 200 || response.status === 201) {
         toast.success(
-          isUpdating ? "Guide Updated" : "Guide Under Consideration"
+          isUpdating ? "Guide Updated" : "Guide Under Consideration",
         );
         setGuide({ ...values, approved: false });
         setIsFormVisible(false);
@@ -128,20 +126,17 @@ const Guide = () => {
                 <>
                   <button
                     onClick={() => setIsFormVisible(true)}
-                    className="mb-4 px-6 py-3 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-500"
-                  >
+                    className="mb-4 px-6 py-3 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-500">
                     Update Profile
                   </button>
                   <button
                     onClick={() => setIsProfileVisible(true)}
-                    className="mb-4 px-6 py-3 bg-green-600 text-white font-semibold rounded-md hover:bg-green-500"
-                  >
+                    className="mb-4 px-6 py-3 bg-green-600 text-white font-semibold rounded-md hover:bg-green-500">
                     View Profile
                   </button>
                   <button
                     onClick={handleLogout}
-                    className="flex items-center bg-red-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-red-600"
-                  >
+                    className="flex items-center bg-red-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-red-600">
                     <LogOut className="mr-2" /> Logout
                   </button>
                 </>
@@ -149,14 +144,12 @@ const Guide = () => {
                 <>
                   <button
                     onClick={() => setIsProfileVisible(true)}
-                    className="mb-4 px-6 py-3 bg-green-600 text-white font-semibold rounded-md hover:bg-green-500"
-                  >
+                    className="mb-4 px-6 py-3 bg-green-600 text-white font-semibold rounded-md hover:bg-green-500">
                     View Profile
                   </button>
                   <button
                     onClick={handleLogout}
-                    className="mt-4 flex items-center bg-red-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-red-600"
-                  >
+                    className="mt-4 flex items-center bg-red-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-red-600">
                     <LogOut className="mr-2" /> Logout
                   </button>
                 </>
@@ -165,14 +158,12 @@ const Guide = () => {
               <>
                 <button
                   onClick={() => setIsFormVisible(true)}
-                  className="mb-4 px-6 py-3 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-500"
-                >
+                  className="mb-4 px-6 py-3 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-500">
                   Create Profile
                 </button>
                 <button
                   onClick={handleLogout}
-                  className="flex items-center bg-red-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-red-600"
-                >
+                  className="flex items-center bg-red-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-red-600">
                   <LogOut className="mr-2" /> Logout
                 </button>
               </>
@@ -188,8 +179,7 @@ const Guide = () => {
                 enableReinitialize
                 initialValues={initialValues}
                 validationSchema={validationSchema}
-                onSubmit={handleGuideSubmit}
-              >
+                onSubmit={handleGuideSubmit}>
                 {({ isSubmitting }) => (
                   <Form>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -197,8 +187,7 @@ const Guide = () => {
                         <div key={key}>
                           <label
                             htmlFor={key}
-                            className="block text-sm font-medium text-gray-700"
-                          >
+                            className="block text-sm font-medium text-gray-700">
                             {key.charAt(0).toUpperCase() + key.slice(1)}
                           </label>
                           <div className="mt-2 border border-gray-900 rounded-md shadow-sm">
@@ -231,21 +220,19 @@ const Guide = () => {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500"
-                      >
+                        className="w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500">
                         {isSubmitting
                           ? guide
                             ? "Updating..."
                             : "Submitting..."
                           : guide
-                          ? "Update Guide"
-                          : "Add Guide"}
+                            ? "Update Guide"
+                            : "Add Guide"}
                       </button>
                       <button
                         type="button"
                         onClick={() => setIsFormVisible(false)}
-                        className="w-full justify-center rounded-md bg-gray-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-600"
-                      >
+                        className="w-full justify-center rounded-md bg-gray-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-600">
                         Cancel
                       </button>
                     </div>
@@ -286,7 +273,7 @@ const Guide = () => {
                   <div className="flex flex-col">
                     <span className="text-sm text-gray-500">Phone No</span>
                     <span className="font-semibold text-gray-800">
-                     +91 {guide.phoneNo}
+                      +91 {guide.phoneNo}
                     </span>
                   </div>
                   <div className="flex flex-col">
@@ -311,9 +298,10 @@ const Guide = () => {
                     <span className="text-sm text-gray-500">Available</span>
                     <span
                       className={`font-semibold px-2 py-1 rounded w-fit ${
-                        guide.isAvailable ? "text-green-700 bg-green-100" : "text-red-700 bg-red-100"
-                      }`}
-                    >
+                        guide.isAvailable
+                          ? "text-green-700 bg-green-100"
+                          : "text-red-700 bg-red-100"
+                      }`}>
                       {guide.isAvailable ? "Yes" : "No"}
                     </span>
                   </div>
@@ -322,8 +310,7 @@ const Guide = () => {
                 {/* Close Button */}
                 <button
                   onClick={() => setIsProfileVisible(false)}
-                  className="mt-10 w-full rounded-lg bg-gradient-to-r from-red-500 to-red-600 px-6 py-3 text-white font-bold hover:from-red-600 hover:to-red-700 transition-all duration-300"
-                >
+                  className="mt-10 w-full rounded-lg bg-gradient-to-r from-red-500 to-red-600 px-6 py-3 text-white font-bold hover:from-red-600 hover:to-red-700 transition-all duration-300">
                   Close Profile
                 </button>
               </div>

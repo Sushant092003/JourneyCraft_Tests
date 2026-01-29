@@ -1,4 +1,4 @@
-fetch("http://127.0.0.1:9000/admin/counts")
+fetch(buildUrl("/admin/counts"))
   .then((response) => response.json())
   .then((data) => {
     document.getElementById("total-guides").textContent = data.totalGuides;

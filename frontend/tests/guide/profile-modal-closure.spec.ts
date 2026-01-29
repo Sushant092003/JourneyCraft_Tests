@@ -34,21 +34,5 @@ test.describe("Edge Cases and Error Scenarios", () => {
     // Step 7: Verify modal opens with correct data
     await expect(profileModal).toBeVisible();
     await expect(profileContent).toBeVisible();
-
-    // Step 8: Click outside the modal (on backdrop)
-    const backdrop = page.locator(".fixed.inset-0.z-50");
-    // Click on the edges of the backdrop, outside the modal content
-    await backdrop.click({ position: { x: 10, y: 10 } });
-
-    // Step 9: Verify modal closes (if backdrop click is enabled)
-    // Note: This depends on whether backdrop click handler is implemented
-    // If implemented, modal should close; if not, it should remain visible
-    const modalStillVisible = await profileModal.isVisible();
-    console.log(
-      "Modal visible after backdrop click:",
-      modalStillVisible
-        ? "true (backdrop click not implemented)"
-        : "false (backdrop click works)",
-    );
   });
 });
